@@ -17,7 +17,7 @@ Reservation process for different payloads
 ### Test
 - run `bundle exec rails test`
 
-### Usage
+### Default Usage
 - startup the server `bundle exec rails s`
 - open a separate console tab, then send payload through curl:
 ```
@@ -26,9 +26,12 @@ curl -X POST http://localhost:3000/api/v1/reservations/create_update -H 'Content
 - currently defined to handle 2 payload formats:
   - **AirbnbHost** (on `app/classes/airbnb_host.rb`) and **BookingHost** (on `app/classes/booking_host.rb`)
   - each defined hosts are included in the array of `PARTNERS` found on **Host** (on `app/classes/host.rb`)
-- to add another payload from a different host:
-  - for example you have a different payload:
+ 
+### Additional
+- to add another payload format
 ```
+example
+
 {
   "code": "RRRR54321",
   "status": "",
@@ -57,8 +60,10 @@ curl -X POST http://localhost:3000/api/v1/reservations/create_update -H 'Content
   }
 }
 ```
-  - need to create a new class ex: **RandomHost** (put it on `app/classes/random_host.rb`)
-  - define the `initialize` method and set the matchers (these are the paths to hash keys to dig on the payload that corresponds to the models (Guest, Reservation, etc.) attributes)
+
+- need to create a new class ex: **RandomHost** (put it on `app/classes/random_host.rb`)
+- define the `initialize` method and set the matchers (these are the paths to hash keys to dig on the payload that corresponds to the models (Guest, Reservation, etc.) attributes) 
+
 ```
 def initialize(hsh)
   @name = "Random name"
@@ -93,12 +98,12 @@ def initialize(hsh)
   }
 end
 ```
-  - then update the array of `PARTNERS` to include your new host ex: 
+  - then update the array of `PARTNERS` on `app/classes/host.rb` to include your new host ex: 
 ```
   {
     class: "RandomHost", # this should match the class name you created
     dig_code: [:code] , # this refers to the path of hash keys to get to the code
-    code_indicators: ["rrrr"] # this refers to initial set of strings on the reservation code that it will try to match to indicate which host it is from
+    code_indicators: ["rrrr"] # this refers to initial set of strings on the reservation code that it will try to match
   }
 ```
   - you can restart the server and try curling with your new payload
