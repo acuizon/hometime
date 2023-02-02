@@ -5,6 +5,7 @@ class CreatePriceDetails < ActiveRecord::Migration[5.2]
       t.string :payout_price
       t.string :security_price
       t.string :total_price
+      t.references :reservation
       t.timestamps
     end
   end

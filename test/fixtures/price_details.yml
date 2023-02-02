@@ -4,17 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-
 one: {
-  email: "wayne_woodbridge@bnb.com",
-  firstname: "Wayne",
-  lastname: "Woodbridge",
-  phone: "639123456789"
+  currency: "AUD",
+  payout_price: "4200.00",
+  security_price: "500",
+  total_price: "4700.00",
+  reservation: one
 }
 
 two: {
-  email: "guest002@mail.com",
-  firstname: "Second",
-  lastname: "Guest",
-  phone: "639987654321"
+  currency: "AUD",
+  payout_price: "3800.00",
+  security_price: "500",
+  total_price: "4300.00",
+  reservation: two
 }

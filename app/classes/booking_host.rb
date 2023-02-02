@@ -34,7 +34,7 @@ class BookingHost < Host
   end
 
   def assign_process(res, attr, str)
-    res[attr] = (attr == :phone) ? str.join(", ") :str
+    res[attr] = (attr == :phone) ? str.uniq.join(", ") :str
   end
 
 end

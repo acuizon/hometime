@@ -4,17 +4,24 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-
 one: {
-  email: "wayne_woodbridge@bnb.com",
-  firstname: "Wayne",
-  lastname: "Woodbridge",
-  phone: "639123456789"
+  nights: 4,
+  guests: 4,
+  adults: 2,
+  children: 2,
+  infants: 0,
+  start_date: "2021-04-14",
+  end_date: "2021-04-18",
+  reservation: one
 }
 
 two: {
-  email: "guest002@mail.com",
-  firstname: "Second",
-  lastname: "Guest",
-  phone: "639987654321"
+  nights: 4,
+  guests: 4,
+  adults: 2,
+  children: 2,
+  infants: 0,
+  start_date: "2021-03-12",
+  end_date: "2021-03-16",
+  reservation: two
 }

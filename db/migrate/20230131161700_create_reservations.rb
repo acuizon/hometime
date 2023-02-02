@@ -3,6 +3,7 @@ class CreateReservations < ActiveRecord::Migration[5.2]
     create_table :reservations do |t|
       t.string :code, index: { unique: true }
       t.string :status
+      t.string :partner
       t.references :guest
       t.timestamps
     end

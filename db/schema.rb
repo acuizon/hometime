@@ -41,13 +41,16 @@ ActiveRecord::Schema.define(version: 2023_01_31_162202) do
     t.string "payout_price"
     t.string "security_price"
     t.string "total_price"
+    t.bigint "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_price_details_on_reservation_id"
   end
 
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code"
     t.string "status"
+    t.string "partner"
     t.bigint "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
